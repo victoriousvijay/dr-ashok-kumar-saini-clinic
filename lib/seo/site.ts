@@ -12,7 +12,9 @@ export const siteConfig = {
   tagline: "Specialist Mental Health Care, Built Around You.",
   description:
     "Psychiatric consultation, psychotherapy and mental health services in Jaipur with a patient-first approach.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.com",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://www.example.com"),
   locale: "en_IN",
   address: {
     line1: "17, 18, First Floor, Near Union Bank, Engineers Colony",
