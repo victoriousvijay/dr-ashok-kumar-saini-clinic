@@ -4,6 +4,12 @@ import { Topbar } from "@/components/crm/topbar";
 import { getCurrentProfile } from "@/lib/crm/current-user";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
+// The CRM reads the auth session and live data on every request; it must
+// never be statically prerendered (which would also crash the build when
+// Supabase env vars aren't set yet, since that check runs before Next can
+// detect the dynamic cookies() call and opt out of prerendering itself).
+export const dynamic = "force-dynamic";
+
 export default async function CrmAppLayout({
   children,
 }: {
