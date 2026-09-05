@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  /* Deep navy / midnight — premium depth */
+  --color-ink-950: #070d17;
+  --color-ink-900: #0c1626;
+  --color-ink-800: #142238;
+  --color-ink-700: #1c3049;
+  --color-ink-600: #2a4562;
+
+  /* Warm off-white / clean surfaces */
+  --color-cream-50: #faf8f4;
+  --color-cream-100: #f3efe6;
+  --color-cream-200: #e9e2d3;
+
+  /* Sophisticated blue/teal — primary accent */
+  --color-teal-700: #0b5e59;
+  --color-teal-600: #0e7a73;
+  --color-teal-500: #148f86;
+  --color-teal-400: #2fab9f;
+  --color-teal-100: #e2f3f0;
+  --color-teal-50: #f1f9f7;
+
+  /* Subtle secondary accent — used sparingly */
+  --color-gold-500: #b8863b;
+  --color-gold-100: #f4e9d6;
+
+  /* Neutral text/borders */
+  --color-slate-900: #101820;
+  --color-slate-700: #3c4a56;
+  --color-slate-500: #64707a;
+  --color-slate-300: #cdd4d8;
+  --color-slate-200: #e3e7e9;
+  --color-slate-100: #f1f3f4;
+
+  --background: var(--color-cream-50);
+  --foreground: var(--color-ink-950);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ink-950: var(--color-ink-950);
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-800: var(--color-ink-800);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-600: var(--color-ink-600);
+
+  --color-cream-50: var(--color-cream-50);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-200: var(--color-cream-200);
+
+  --color-teal-700: var(--color-teal-700);
+  --color-teal-600: var(--color-teal-600);
+  --color-teal-500: var(--color-teal-500);
+  --color-teal-400: var(--color-teal-400);
+  --color-teal-100: var(--color-teal-100);
+  --color-teal-50: var(--color-teal-50);
+
+  --color-gold-500: var(--color-gold-500);
+  --color-gold-100: var(--color-gold-100);
+
+  --color-slate-900: var(--color-slate-900);
+  --color-slate-700: var(--color-slate-700);
+  --color-slate-500: var(--color-slate-500);
+  --color-slate-300: var(--color-slate-300);
+  --color-slate-200: var(--color-slate-200);
+  --color-slate-100: var(--color-slate-100);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+
+  --container-7xl: 88rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+::selection {
+  background: var(--color-teal-100);
+  color: var(--color-ink-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
