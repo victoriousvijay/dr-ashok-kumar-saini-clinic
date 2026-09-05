@@ -144,8 +144,9 @@ export type Database = {
           created_at: string;
           due_at: string;
           id: string;
+          lead_id: string | null;
           note: string | null;
-          patient_id: string;
+          patient_id: string | null;
           status: FollowUpStatus;
           type: string | null;
         };
@@ -155,8 +156,9 @@ export type Database = {
           created_at?: string;
           due_at: string;
           id?: string;
+          lead_id?: string | null;
           note?: string | null;
-          patient_id: string;
+          patient_id?: string | null;
           status?: FollowUpStatus;
           type?: string | null;
         };
@@ -166,8 +168,9 @@ export type Database = {
           created_at?: string;
           due_at?: string;
           id?: string;
+          lead_id?: string | null;
           note?: string | null;
-          patient_id?: string;
+          patient_id?: string | null;
           status?: FollowUpStatus;
           type?: string | null;
         };
@@ -177,6 +180,13 @@ export type Database = {
             columns: ["assigned_to"];
             isOneToOne: false;
             referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "follow_ups_lead_id_fkey";
+            columns: ["lead_id"];
+            isOneToOne: false;
+            referencedRelation: "leads";
             referencedColumns: ["id"];
           },
           {
@@ -243,24 +253,27 @@ export type Database = {
           author_id: string;
           created_at: string;
           id: string;
+          lead_id: string | null;
           note: string;
-          patient_id: string;
+          patient_id: string | null;
           updated_at: string;
         };
         Insert: {
           author_id: string;
           created_at?: string;
           id?: string;
+          lead_id?: string | null;
           note: string;
-          patient_id: string;
+          patient_id?: string | null;
           updated_at?: string;
         };
         Update: {
           author_id?: string;
           created_at?: string;
           id?: string;
+          lead_id?: string | null;
           note?: string;
-          patient_id?: string;
+          patient_id?: string | null;
           updated_at?: string;
         };
         Relationships: [
@@ -269,6 +282,13 @@ export type Database = {
             columns: ["author_id"];
             isOneToOne: false;
             referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "notes_lead_id_fkey";
+            columns: ["lead_id"];
+            isOneToOne: false;
+            referencedRelation: "leads";
             referencedColumns: ["id"];
           },
           {
